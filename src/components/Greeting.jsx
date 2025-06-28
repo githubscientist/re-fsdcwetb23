@@ -1,12 +1,10 @@
 // child component of App
-function Greeting(props) {
-
-    console.log(props);
+function Greeting({ name, email }) {
 
     return (
         <>
-            <h1>Hello, {props.loggedInUser}!</h1>
-            <p>This is my First Component</p>
+            <h1>Hello, {name}!</h1>
+            <p>You are logged in using {email}</p>
         </>
     )
 }
