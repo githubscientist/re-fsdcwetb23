@@ -1,13 +1,12 @@
-function Greeting() {
+// child component of App
+function Greeting(props) {
 
-    let num1 = 5;
-    let num2 = 6;
+    console.log(props);
 
     return (
         <>
-            <h1>Hello, World!</h1>
+            <h1>Hello, {props.loggedInUser}!</h1>
             <p>This is my First Component</p>
-            <p>The sum of {num1} and {num2} is {num1 + num2}</p>
         </>
     )
 }
