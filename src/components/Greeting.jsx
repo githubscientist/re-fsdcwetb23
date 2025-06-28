@@ -1,5 +1,10 @@
 // child component of App
-function Greeting({ name, email }) {
+function Greeting(props) {
+
+    const name = 'sathish';
+    const email = 'sathish@guvi.in';
+
+    props.dataFromChild(name, email);
 
     return (
         <>

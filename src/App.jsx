@@ -3,12 +3,16 @@ import Greeting from "./components/Greeting";
 // parent component to Greeting
 function App() {
 
-  const name = 'sathish';
-  const email = 'sathish@guvi.in';
+  // create a carrier: callback function
+  function dataFromChild(name, email) {
+    console.log(name, email);
+  }
 
   return (
     <>
-      <Greeting name={name} email={email} />
+      <Greeting
+        dataFromChild={dataFromChild}
+      />
     </>
   )
 }
