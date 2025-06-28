@@ -44,3 +44,7 @@ git push -u origin main
 
 - Component are the building blocks of React applications.
 - They are reusable pieces of code that can be composed to create complex UIs.
+
+#### JSX
+
+- JavaScript XML (JSX) is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript.
