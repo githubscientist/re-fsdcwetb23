@@ -48,3 +48,7 @@ git push -u origin main
 #### JSX
 
 - JavaScript XML (JSX) is a syntax extension for JavaScript that allows you to write HTML-like code within JavaScript.
+
+#### Props Drilling
+
+- Props drilling refers to the process of passing data from a parent component to a deeply nested child component through multiple layers of components.
