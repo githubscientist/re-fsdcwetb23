@@ -52,3 +52,8 @@ git push -u origin main
 #### Props Drilling
 
 - Props drilling refers to the process of passing data from a parent component to a deeply nested child component through multiple layers of components.
+
+ComponentA (data)
+  - return ComponentB (data)
+               - return ComponentC (data)
+                            - return ComponentD (data)

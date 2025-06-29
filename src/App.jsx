@@ -1,20 +1,12 @@
-import Greeting from "./components/Greeting";
+import CompB from "./components/CompB";
 
-// parent component to Greeting
 function App() {
 
-  // create a carrier: callback function
-  function dataFromChild(name, email) {
-    console.log(name, email);
-  }
+  const message = "React is Awesome";
 
-  return (
-    <>
-      <Greeting
-        dataFromChild={dataFromChild}
-      />
-    </>
-  )
+  return <CompB
+    message={message}
+  />
 }
 
 export default App;
