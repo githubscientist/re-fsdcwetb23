@@ -54,6 +54,15 @@ git push -u origin main
 - Props drilling refers to the process of passing data from a parent component to a deeply nested child component through multiple layers of components.
 
 ComponentA (data)
-  - return ComponentB (data)
-               - return ComponentC (data)
-                            - return ComponentD (data)
+
+- return ComponentB (data) - return ComponentC (data) - return ComponentD (data)
+
+Disadvantages of Props Drilling:
+
+- It can make the code harder to read and maintain.
+- It can lead to unnecessary re-renders of components that do not need the data.
+- The data is passed through multiple layers of components, which might not need it, leading to performance issues.
+
+#### Solution to Props Drilling
+
+- Use Context API.
