@@ -1,8 +1,20 @@
+import { useState } from "react";
+
+/*
+  State -> 
+  
+  - State is a value that can change over time. 
+  - State is used to store data that can be changed by the user or by the application.
+
+
+  - Add a button to decrease the count
+  - Add a button to reset the count to 0
+*/
 function App() {
-  let count = 0;
+  const [count, setCount] = useState(0);
 
   const handleIncrease = (args) => {
-    count = count + 1;
+    setCount(count + 1);
     console.log('Count increased:', count);
     console.log('Arguments:', args);
   }
