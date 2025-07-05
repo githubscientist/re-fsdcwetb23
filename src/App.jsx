@@ -9,23 +9,33 @@ import { useState } from "react";
 
   - Add a button to decrease the count
   - Add a button to reset the count to 0
+
+  State Changes causes re-rendering of the component.
 */
 function App() {
 
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
+  const [reactions, setReactions] = useState({
+    likes: 0,
+    dislikes: 0
+  });
+
+  console.log(reactions);
 
   const handleLike = () => {
-    setLikes(likes + 1);
+    setReactions({
+      ...reactions, likes: reactions.likes + 1
+    });
   }
 
   const handleDislike = () => {
-    setDislikes(dislikes + 1);
+    setReactions({
+      ...reactions, dislikes: reactions.dislikes + 1
+    });
   }
 
   return (
     <>
-      <button onClick={handleLike}>Like {likes}</button> <button onClick={handleDislike}>Dislike {dislikes}</button>
+      <button onClick={handleLike}>Like {reactions.likes}</button> <button onClick={handleDislike}>Dislike {reactions.dislikes}</button>
     </>
   )
 }
