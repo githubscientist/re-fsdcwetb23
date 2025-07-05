@@ -13,16 +13,18 @@ import { useState } from "react";
 function App() {
   const [count, setCount] = useState(0);
 
-  const handleIncrease = (args) => {
+  const handleIncrease = () => {
     setCount(count + 1);
-    console.log('Count increased:', count);
-    console.log('Arguments:', args);
+  }
+
+  const handleDecrease = () => {
+    setCount(count - 1);
   }
 
   return (
     <>
       <h1>Counter: {count}</h1>
-      <button onClick={() => handleIncrease('hello')}>Increase</button>
+      <button onClick={handleIncrease}>Increase</button> <button onClick={handleDecrease}>Decrease</button> <button onClick={() => setCount(0)}>Reset</button>
     </>
   )
 }
