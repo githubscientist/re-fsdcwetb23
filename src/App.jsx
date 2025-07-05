@@ -11,20 +11,21 @@ import { useState } from "react";
   - Add a button to reset the count to 0
 */
 function App() {
-  const [count, setCount] = useState(0);
 
-  const handleIncrease = () => {
-    setCount(count + 1);
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
+
+  const handleLike = () => {
+    setLikes(likes + 1);
   }
 
-  const handleDecrease = () => {
-    setCount(count - 1);
+  const handleDislike = () => {
+    setDislikes(dislikes + 1);
   }
 
   return (
     <>
-      <h1>Counter: {count}</h1>
-      <button onClick={handleIncrease}>Increase</button> <button onClick={handleDecrease}>Decrease</button> <button onClick={() => setCount(0)}>Reset</button>
+      <button onClick={handleLike}>Like {likes}</button> <button onClick={handleDislike}>Dislike {dislikes}</button>
     </>
   )
 }
