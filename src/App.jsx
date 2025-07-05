@@ -1,42 +1,34 @@
-import { useState } from "react";
-
 /*
-  State -> 
-  
-  - State is a value that can change over time. 
-  - State is used to store data that can be changed by the user or by the application.
+    useEffect Hook: 
 
-
-  - Add a button to decrease the count
-  - Add a button to reset the count to 0
-
-  State Changes causes re-rendering of the component.
+    - Used to perform side effects in function components.
+    - side effects can include data fetching, subscriptions, or manually changing the DOM.
 */
-function App() {
 
-  const [reactions, setReactions] = useState({
-    likes: 0,
-    dislikes: 0
-  });
+import { useEffect, useState } from "react";
 
-  console.log(reactions);
+const App = () => {
 
-  const handleLike = () => {
-    setReactions({
-      ...reactions, likes: reactions.likes + 1
-    });
-  }
+  const [state, setState] = useState(0);
 
-  const handleDislike = () => {
-    setReactions({
-      ...reactions, dislikes: reactions.dislikes + 1
-    });
-  }
+  // this runs after the component mounts and after every re-render
+  // useEffect(() => {
+  //   fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
+  //     .then(response => response.json())
+  //     .then(data => console.log(data))
+  // });
+
+  useEffect(() => {
+    fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }, [state]);
 
   return (
-    <>
-      <button onClick={handleLike}>Like {reactions.likes}</button> <button onClick={handleDislike}>Dislike {reactions.dislikes}</button>
-    </>
+    <div>
+      <h1>App</h1>
+      <button onClick={() => setState(state + 1)}>Re-Render Component</button>
+    </div>
   )
 }
 
