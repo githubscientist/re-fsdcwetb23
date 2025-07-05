@@ -66,3 +66,36 @@ Disadvantages of Props Drilling:
 #### Solution to Props Drilling
 
 - Use Context API.
+
+### React Components
+
+- We have two types of components in React:
+
+1. Class Components
+
+   - uses class syntax.
+   - it is a legacy way of creating components.
+   - Stateful components [State -> Component's Memory]
+   - They can hold and manage their own state.
+   - They have lifecycle methods that allow you to hook into different stages of a component's life (e.g., mounting, updating, unmounting).
+   - They are more verbose and require more boilerplate code.
+
+2. Functional Components
+   - uses function syntax.
+   - it was available since the beginning of React but became more popular in the year of 2019 with the introduction of Hooks.
+   - Stateless components
+   - They do not have their own state.
+   - They do not have lifecycle methods.
+   - They are simpler and easier to read.
+   - They are more performant than class components.
+   - Despite they are performant, they are not stateful and do not have lifecycle methods and hence they are not suitable.
+   - Then, in 2019, React introduced Hooks, which allow functional components to have state and lifecycle methods.
+
+### Hooks
+
+- Hooks are functions that allow you to use state and other React features in functional components.
+- They were introduced in React 16.8.
+- All the hooks start with the word "use".
+- The most commonly used hooks are:
+  - useState: To manage state in functional components.
+  - useEffect: To perform side effects in functional components (similar to lifecycle methods in class components).
