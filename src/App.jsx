@@ -1,19 +1,18 @@
-// Functional Component in React
-// Uses function syntax to define a component
-// function App() {
-//   return <h1>Functional Component in React</h1>
-// }
+function App() {
+  let count = 0;
 
-
-
-// Class Component in React
-// Uses class syntax to define a component
-import React from "react";
-
-class App extends React.Component {
-  render() {
-    return <h1>Class Component in React</h1>
+  const handleIncrease = (args) => {
+    count = count + 1;
+    console.log('Count increased:', count);
+    console.log('Arguments:', args);
   }
+
+  return (
+    <>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => handleIncrease('hello')}>Increase</button>
+    </>
+  )
 }
 
 export default App;
