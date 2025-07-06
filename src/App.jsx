@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import TodoItem from "./components/TodoItem";
 
 // API URL: https://685ac3af9f6ef9611157b188.mockapi.io/todos
 const App = () => {
@@ -21,7 +22,10 @@ const App = () => {
       <ul>
         {
           todos.map((todo, index) => (
-            <li key={index}>{todo.content}</li>
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+            />
           ))
         }
       </ul>
