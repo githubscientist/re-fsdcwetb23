@@ -1,35 +1,36 @@
-import { useEffect, useState } from "react";
-import TodoItem from "./components/TodoItem";
-
-// API URL: https://685ac3af9f6ef9611157b188.mockapi.io/todos
+// Uncontrolled Form or Component in React
+// Becuase we are not using state to manage the form inputs, this is an uncontrolled component.
 const App = () => {
 
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
-      .then(response => response.json())
-      .then(data => setTodos(data));
-  }, []);
-
-  useEffect(() => {
-    console.log(todos);
-  }, [todos]);
+  const handleLogin = (event) => {
+    event.preventDefault();
+    console.log('form submitted');
+    console.log(event.target.email.value, event.target.password.value);
+  }
 
   return (
-    <>
-      <h1>Todos</h1>
-      <ul>
-        {
-          todos.map((todo, index) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-            />
-          ))
-        }
-      </ul>
-    </>
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
+        <div>
+          <input
+            type="text"
+            placeholder="email..."
+            name="email"
+          />
+        </div>
+        <br />
+        <div>
+          <input
+            type="password"
+            placeholder="password..."
+            name="password"
+          />
+        </div>
+        <br />
+        <button>Login</button>
+      </form>
+    </div>
   )
 }
 
