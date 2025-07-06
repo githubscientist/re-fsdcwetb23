@@ -1,11 +1,16 @@
-// Uncontrolled Form or Component in React
-// Becuase we are not using state to manage the form inputs, this is an uncontrolled component.
+// Controlled Form or Component in React
+// Because the value of the input is controlled by React state
+
+import { useState } from "react";
 const App = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = (event) => {
     event.preventDefault();
     console.log('form submitted');
-    console.log(event.target.email.value, event.target.password.value);
+    console.log(email, password);
   }
 
   return (
@@ -17,6 +22,8 @@ const App = () => {
             type="text"
             placeholder="email..."
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <br />
@@ -25,6 +32,8 @@ const App = () => {
             type="password"
             placeholder="password..."
             name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <br />
