@@ -1,40 +1,23 @@
+import { useState } from "react";
+
 const App = () => {
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    let email = document.getElementById('email').value;
-    let password = document.getElementById('password').value;
-
-    console.log('Email:', email);
-    console.log('Password:', password);
-  }
+  const [count, setCount] = useState(0);
 
   return (
     <div>
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <div>
-          <input
-            type="text"
-            placeholder="email..."
-            name="email"
-            id="email"
-          />
-        </div>
-        <br />
-        <div>
-          <input
-            type="password"
-            placeholder="password..."
-            name="password"
-            id="password"
-          />
-        </div>
-        <br />
-        <button>Login</button>
-      </form>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </div>
   )
 }
 
 export default App;
+
+/*
+  State -> count
+
+  1. Component Rendered
+  2. Button Clicked (when clicked) -> Triggers setCount -> Update the state count by increasing it by 1 -> state change causes re-render
+  3. Component Rendered again with updated state
+*/

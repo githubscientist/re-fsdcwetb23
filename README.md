@@ -103,4 +103,5 @@ Disadvantages of Props Drilling:
 ### useRef
 
 - We can use useRef in two ways:
-  1.  To access DOM elements directly.
+  1. To access DOM elements directly.
+  2. To store mutable values that do not cause re-renders when changed. But the value is persistent across renders.
