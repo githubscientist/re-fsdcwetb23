@@ -99,3 +99,8 @@ Disadvantages of Props Drilling:
 - The most commonly used hooks are:
   - useState: To manage state in functional components.
   - useEffect: To perform side effects in functional components (similar to lifecycle methods in class components).
+
+### useRef
+
+- We can use useRef in two ways:
+  1.  To access DOM elements directly.
