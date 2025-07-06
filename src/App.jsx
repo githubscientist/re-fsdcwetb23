@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
 
-  const [count, setCount] = useState(0);
+  let count = 0;
+  let [refresh, setRefresh] = useState(1);
+
+  const handleIncrease = () => {
+    count = count + 1;
+    console.log('Count increased:', count);
+  }
+
+  useEffect(() => {
+    console.log('Component Rendered:', refresh);
+  });
 
   return (
     <div>
       <h1>Counter: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={handleIncrease}>Increase</button> <button onClick={() => setRefresh(refresh + 1)}>Refresh Component {refresh}</button>
     </div>
   )
 }
