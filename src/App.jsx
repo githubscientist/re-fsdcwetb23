@@ -1,13 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const App = () => {
 
   let count = 0;
   let [refresh, setRefresh] = useState(1);
+  let countRef = useRef(0);
 
   const handleIncrease = () => {
     count = count + 1;
     console.log('Count increased:', count);
+  }
+
+  const handleRefIncrease = () => {
+    countRef.current = countRef.current + 1;
+    console.log('Count Ref increased:', countRef.current);
   }
 
   useEffect(() => {
@@ -16,8 +22,12 @@ const App = () => {
 
   return (
     <div>
-      <h1>Counter: {count}</h1>
-      <button onClick={handleIncrease}>Increase</button> <button onClick={() => setRefresh(refresh + 1)}>Refresh Component {refresh}</button>
+      <button onClick={() => setRefresh(refresh + 1)}>Refresh Component {refresh}</button>
+      <h1>Variable Counter: {count}</h1>
+      <button onClick={handleIncrease}>Increase</button>
+
+      <h1>Use Ref Counter: {count}</h1>
+      <button onClick={handleRefIncrease}>Increase</button>
     </div>
   )
 }
