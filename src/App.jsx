@@ -1,27 +1,14 @@
 import { useEffect, useReducer } from "react";
-
-const reducer = (state, action) => {
-  if (action.type === 'LIKE') {
-    return state + 1;
-  }
-}
+import { initialState, reducer } from "./reducers/reactionReducer";
 
 const App = () => {
 
-  const [likes, dispatch] = useReducer(reducer, 0);
-
-  const handleLike = () => {
-    dispatch({ type: "LIKE" });
-  }
-
-  useEffect(() => {
-    console.log(`You have ${likes} likes`);
-  }, [likes]);
+  const [likes, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
       <h1>Likes: {likes}</h1>
-      <button onClick={handleLike}>Like</button>
+      <button onClick={() => dispatch({ type: "LIKE" })}>Like</button>
     </div>
   )
 }
