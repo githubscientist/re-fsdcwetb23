@@ -1,21 +1,15 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 const App = () => {
 
   const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
   const [render, setRender] = useState(0);
 
-  let totalSum = useMemo(() => {
-    return numbers.reduce((acc, num) => {
-      console.log('Calculating sum...');
-      return acc + num;
-    })
-  }, [numbers]);
+  // useCallback is used to memoize the function so that it does not get recreated on every render
+  let calculateSum = useCallback(() => numbers.reduce((acc, num) => acc + num), [numbers]);
 
-  // let totalSum = numbers.reduce((acc, num) => {
-  //   console.log('Calculating sum...');
-  //   return acc + num;
-  // });
+  // useMemo is used to memoize the result of the calculation so that it does not get recalculated on every render
+  let totalSum = useMemo(calculateSum, [numbers]);
 
   return (
     <div>
