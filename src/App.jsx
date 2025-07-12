@@ -1,21 +1,30 @@
-import { useCallback, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const App = () => {
 
-  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
-  const [render, setRender] = useState(0);
+  const [renderCount, setRenderCount] = useState(0);
+  const [data, setData] = useState(0);
 
-  // useCallback is used to memoize the function so that it does not get recreated on every render
-  let calculateSum = useCallback(() => numbers.reduce((acc, num) => acc + num), [numbers]);
+  // 1. When the component is mounted and runs only once.
+  // It will not run again on re-renders.
+  useEffect(() => {
+    console.log("Component mounted");
+  }, []);
 
-  // useMemo is used to memoize the result of the calculation so that it does not get recalculated on every render
-  let totalSum = useMemo(calculateSum, [numbers]);
+  // 2. When the component is mounted and on every update or re-render of the component.
+  useEffect(() => {
+    console.log('Component updated');
+  });
+
+  // 3. When the component is mounted and on every update or re-render of the component, but only if the dependency changes.
+  useEffect(() => {
+    console.log(`Render count changed: ${renderCount}`);
+  }, [data]);
 
   return (
     <div>
-      <h1>Sum of Numbers: {totalSum}</h1>
-      <button onClick={() => setNumbers([...numbers, numbers.length + 1])}>Add Next Number</button>
-      &nbsp;<button onClick={() => setRender(render + 1)}>Re-Render</button>
+      <button onClick={() => setRenderCount(renderCount + 1)}>Re-Render Component</button>
+      &nbsp; <button onClick={() => setData(data + 1)}>Change Data</button>
     </div>
   )
 }

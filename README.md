@@ -115,3 +115,19 @@ Disadvantages of Props Drilling:
 
 - useMemo is a hook that is used to optimize performance by memoizing expensive calculations.
 - It is an uncommon hook and is used to avoid unnecessary re-computations of values that are expensive to calculate.
+
+### useEffect
+
+- useEffect is a hook that allows you to perform side effects in functional components.
+
+Note:
+
+- hooks cannot be used inside class components.
+- hooks are just functions that can be used inside functional components to bring in a feature that was previously only available in class components.
+- useEffect hook is used to bring in lifecycle methods to functional components.
+- life cycle methods:
+  Let's say I need some functions to run:
+  - when the component is mounted,
+  - When the component is updated or re-rendered,
+  - When the component is unmounted or removed from the DOM.
+- Side effects are operations that runs outside the scope of the component, such as fetching data, subscribing to events, or manipulating the DOM.
