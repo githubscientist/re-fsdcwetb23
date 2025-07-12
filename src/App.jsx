@@ -3,13 +3,12 @@ import { initialState, reducer } from "./reducers/reactionReducer";
 
 const App = () => {
 
-  const [likes, dispatch] = useReducer(reducer, initialState);
+  const [reactions, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
-      <h1>Likes: {likes}</h1>
-      <button onClick={() => dispatch({ type: "LIKE" })}>Like</button>
-      &nbsp; <button onClick={() => dispatch({ type: "DISLIKE" })}>Dislike</button>
+      <button onClick={() => dispatch({ type: "LIKE" })}>Like {reactions.likes} </button>
+      &nbsp; <button onClick={() => dispatch({ type: "DISLIKE" })}>Dislike {reactions.dislikes}</button>
     </div>
   )
 }
