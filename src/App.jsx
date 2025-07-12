@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useReducer } from "react";
 import { initialState, reducer } from "./reducers/reactionReducer";
 
 const App = () => {
@@ -9,6 +9,7 @@ const App = () => {
     <div>
       <h1>Likes: {likes}</h1>
       <button onClick={() => dispatch({ type: "LIKE" })}>Like</button>
+      &nbsp; <button onClick={() => dispatch({ type: "DISLIKE" })}>Dislike</button>
     </div>
   )
 }
