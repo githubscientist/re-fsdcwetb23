@@ -110,3 +110,8 @@ Disadvantages of Props Drilling:
 
 - useReducer is a hook that is used for managing complex state logic in functional components.
 - It is an alternative to useState and is particularly useful when the state logic involves multiple sub-values.
+
+### useMemo
+
+- useMemo is a hook that is used to optimize performance by memoizing expensive calculations.
+- It is an uncommon hook and is used to avoid unnecessary re-computations of values that are expensive to calculate.
