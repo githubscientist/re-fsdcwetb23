@@ -105,3 +105,8 @@ Disadvantages of Props Drilling:
 - We can use useRef in two ways:
   1. To access DOM elements directly.
   2. To store mutable values that do not cause re-renders when changed. But the value is persistent across renders.
+
+### useReducer
+
+- useReducer is a hook that is used for managing complex state logic in functional components.
+- It is an alternative to useState and is particularly useful when the state logic involves multiple sub-values.
