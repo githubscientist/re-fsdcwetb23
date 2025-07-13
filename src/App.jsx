@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Register from "./components/Register";
 import HomeWrapper from "./wrappers/HomeWrapper";
 import Dashboard from "./pages/Dashboard";
+import Todo from "./components/Todo";
 
 const routes = [
   {
@@ -26,7 +27,13 @@ const routes = [
   },
   {
     path: "dashboard",
-    element: <Dashboard />
+    element: <Dashboard />,
+    children: [
+      {
+        path: "todo",
+        element: <Todo />
+      }
+    ]
   }
 ];
 
