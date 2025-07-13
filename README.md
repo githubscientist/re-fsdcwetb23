@@ -131,3 +131,35 @@ Note:
   - When the component is updated or re-rendered,
   - When the component is unmounted or removed from the DOM.
 - Side effects are operations that runs outside the scope of the component, such as fetching data, subscribing to events, or manipulating the DOM.
+
+### React Router
+
+Let's take an example.
+
+Address or Route: http://guvi.in
+
+- http: unsecure protocol
+- https: secure protocol (with SSL certificate)
+- SSL: Secure Socket Layer
+
+guvi.in
+
+- / : root path or route
+- /code-kata
+- /webkata
+- /courses?current_tab=myCourses - Courses Index Page (My Courses)
+  - ?current_tab=freelibrary - Free Courses
+  - ?current_tab=offers - Combo Courses
+  - ?current_tab=paidcourse - Paid Courses
+- /sqlkata
+- /debugging
+- /ide
+- courses-video/?course=javascriptTa
+
+http://localhost:5173/
+
+localhost:5173
+
+- /
+- /about
+- /contact
