@@ -7,20 +7,22 @@ import HomeWrapper from "./wrappers/HomeWrapper";
 const routes = [
   {
     path: "/",
-    element: <HomeWrapper />
+    element: <HomeWrapper />,
+    children: [
+      {
+        path: "",
+        element: <Home />
+      },
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "register",
+        element: <Register />
+      }
+    ]
   },
-  {
-    path: "/home",
-    element: <Home />
-  },
-  {
-    path: "/login",
-    element: <Login />
-  },
-  {
-    path: "/register",
-    element: <Register />
-  }
 ];
 
 // 1. Create a router object.
