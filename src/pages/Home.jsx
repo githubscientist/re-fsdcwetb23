@@ -3,7 +3,6 @@ import { Link } from "react-router";
 const Home = () => {
     return (
         <div>
-            <h1>Todo App</h1>
             <p>
                 Welcome to the Todo App! Here you can manage your todos efficiently.
             </p>

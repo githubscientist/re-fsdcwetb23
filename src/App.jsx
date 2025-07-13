@@ -2,10 +2,15 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Login from "./components/Login";
 import Home from "./pages/Home";
 import Register from "./components/Register";
+import HomeWrapper from "./wrappers/HomeWrapper";
 
 const routes = [
   {
     path: "/",
+    element: <HomeWrapper />
+  },
+  {
+    path: "/home",
     element: <Home />
   },
   {
