@@ -1,9 +1,23 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Register = () => {
+
+    const navigate = useNavigate();
+
+    const handleRegister = (event) => {
+        event.preventDefault();
+
+        alert('User Registered!');
+
+        setTimeout(() => {
+            // Redirect to login page after registration
+            navigate('/login');
+        }, 500);
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleRegister}>
                 <div>
                     <input
                         type="email"

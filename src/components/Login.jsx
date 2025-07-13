@@ -1,9 +1,23 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+
+        alert('User Logged In!');
+
+        setTimeout(() => {
+            // Redirect to home page after login
+            navigate('/dashboard');
+        }, 500);
+    }
+
     return (
         <div>
-            <form>
+            <form onSubmit={handleLogin}>
                 <div>
                     <input
                         type="email"

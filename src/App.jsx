@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Home from "./pages/Home";
 import Register from "./components/Register";
 import HomeWrapper from "./wrappers/HomeWrapper";
+import Dashboard from "./pages/Dashboard";
 
 const routes = [
   {
@@ -23,6 +24,10 @@ const routes = [
       }
     ]
   },
+  {
+    path: "dashboard",
+    element: <Dashboard />
+  }
 ];
 
 // 1. Create a router object.
