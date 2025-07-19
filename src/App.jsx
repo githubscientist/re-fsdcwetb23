@@ -5,6 +5,7 @@ import Register from "./components/Register";
 import HomeWrapper from "./wrappers/HomeWrapper";
 import Dashboard from "./pages/Dashboard";
 import Todo from "./components/Todo";
+import todosLoader from "./loaders/unit/todosLoader";
 
 const routes = [
   {
@@ -28,6 +29,8 @@ const routes = [
   {
     path: "dashboard",
     element: <Dashboard />,
+    loader: todosLoader,
+    hydrateFallbackElement: <p>Loading Dashboard...</p>,
   },
   {
     path: "todo/:id",

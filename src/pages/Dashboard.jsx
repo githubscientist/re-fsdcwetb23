@@ -1,16 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
 
 const Dashboard = () => {
 
     const navigate = useNavigate();
-    const [todos, setTodos] = useState([]);
-
-    useEffect(() => {
-        fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos`)
-            .then(response => response.json())
-            .then(data => setTodos(data));
-    }, []);
+    const todos = useLoaderData();
 
     const handleLogout = () => {
         alert('User Logged Out!');
@@ -19,6 +12,8 @@ const Dashboard = () => {
             navigate('/login');
         }, 500);
     }
+
+    console.log(todos);
 
     return (
         <div>

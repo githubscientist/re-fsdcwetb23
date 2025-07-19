@@ -163,3 +163,19 @@ localhost:5173
 - /
 - /about
 - /contact
+
+What is happening in the application?
+
+Step 1: Visit the URL in the browser.
+let's say http://localhost:5173/dashboard
+Step 2: This sets the route to the path (/dashboard).
+Step 3: The React Router matches the path with the defined routes in the application and loads the corresponding component. In this case, it loads the Dashboard component.
+Step 4: The Dashboard component is rendered in the browser, displaying the content of the dashboard.
+Step 5: When rendering the Dashboard component, it also fetches the list of todos from the API using fetch.
+Step 6: The fetched todos are stored in the state (todos) of the Dashboard component.
+Step 7: This causes state change, which triggers a re-render of the Dashboard component.
+Step 8: The re-rendered Dashboard component displays the list of todos fetched from the API.
+
+### Loaders
+
+- Loaders are functions that run before the component is rendered.
