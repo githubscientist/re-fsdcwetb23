@@ -179,3 +179,11 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 ### Loaders
 
 - Loaders are functions that run before the component is rendered.
+
+### Fetching Data
+
+- XHR (XMLHttpRequest) is a browser API that allows you to make HTTP requests to fetch data from a server.
+- Fetch API is a modern alternative to XHR that provides a more powerful and flexible way to make HTTP requests.
+- It is based on Promises, making it easier to work with asynchronous code
+- Axios is a popular third-party library for making HTTP requests in JavaScript. It provides a simple and intuitive API for making requests and handling responses.
+- It is built on top of the Fetch API and provides additional features like request cancellation, interceptors, and automatic JSON parsing.
