@@ -6,6 +6,7 @@ import HomeWrapper from "./wrappers/HomeWrapper";
 import Dashboard from "./pages/Dashboard";
 import Todo from "./components/Todo";
 import todosLoader from "./loaders/unit/todosLoader";
+import todoLoader from "./loaders/unit/todoLoader";
 
 const routes = [
   {
@@ -34,7 +35,9 @@ const routes = [
   },
   {
     path: "todo/:id",
-    element: <Todo />
+    element: <Todo />,
+    loader: todoLoader,
+    hydrateFallbackElement: <p>Loading Todo Details...</p>,
   },
 ];
 

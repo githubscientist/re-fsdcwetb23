@@ -1,23 +1,9 @@
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 
 const Todo = () => {
 
     const navigate = useNavigate();
-    const { id } = useParams();
-    const [todo, setTodo] = useState({});
-
-    useEffect(() => {
-
-        fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                setTodo(data);
-            })
-            .catch(error => {
-                console.error('Error fetching todo:', error);
-            });
-    }, []);
+    const todo = useLoaderData();
 
     const handleBack = () => {
         navigate(-1); // Navigate back to the previous page
