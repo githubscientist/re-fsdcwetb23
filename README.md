@@ -191,5 +191,5 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 ### Axios Instance
 
 - An Axios instance is a pre-configured instance of the Axios library that can be used to make HTTP requests.
-- It allows you to set default configurations like base URL, headers, and timeouts for all
-- requests made using that instance.
+- It allows you to set default configurations like base URL, headers, and timeouts for all requests made using that instance.
+- This is useful for avoiding repetitive code and ensuring consistent configurations across your application.
