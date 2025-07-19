@@ -187,3 +187,9 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 - It is based on Promises, making it easier to work with asynchronous code
 - Axios is a popular third-party library for making HTTP requests in JavaScript. It provides a simple and intuitive API for making requests and handling responses.
 - It is built on top of the Fetch API and provides additional features like request cancellation, interceptors, and automatic JSON parsing.
+
+### Axios Instance
+
+- An Axios instance is a pre-configured instance of the Axios library that can be used to make HTTP requests.
+- It allows you to set default configurations like base URL, headers, and timeouts for all
+- requests made using that instance.
