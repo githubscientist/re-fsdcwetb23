@@ -30,7 +30,7 @@ const routes = [
     element: <Dashboard />,
   },
   {
-    path: "todo",
+    path: "todo/:id",
     element: <Todo />
   },
 ];

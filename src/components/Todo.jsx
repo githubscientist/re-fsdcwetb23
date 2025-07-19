@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, useParams } from "react-router";
 
 const Todo = () => {
 
-    const location = useLocation();
     const navigate = useNavigate();
-    const query = new URLSearchParams(location.search);
+    const { id } = useParams();
     const [todo, setTodo] = useState({});
 
     useEffect(() => {
-        const todoId = query.get("id");
 
-        fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos/${todoId}`)
+        fetch(`https://685ac3af9f6ef9611157b188.mockapi.io/todos/${id}`)
             .then(response => response.json())
             .then(data => {
                 setTodo(data);
@@ -19,7 +17,7 @@ const Todo = () => {
             .catch(error => {
                 console.error('Error fetching todo:', error);
             });
-    }, [location.search]);
+    }, []);
 
     const handleBack = () => {
         navigate(-1); // Navigate back to the previous page

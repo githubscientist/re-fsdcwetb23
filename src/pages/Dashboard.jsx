@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Dashboard = () => {
 
@@ -30,7 +30,7 @@ const Dashboard = () => {
                         {
                             todos.map(todo => (
                                 <li key={todo.id}>
-                                    <Link to={`/todo?id=${todo.id}`}>
+                                    <Link to={`/todo/${todo.id}`}>
                                         {todo.content}
                                     </Link>
                                 </li>
@@ -45,4 +45,4 @@ const Dashboard = () => {
     )
 }
 
-export default Dashboard
+export default Dashboard;
