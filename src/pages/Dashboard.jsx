@@ -30,7 +30,7 @@ const Dashboard = () => {
                         {
                             todos.map(todo => (
                                 <li key={todo.id}>
-                                    <Link to={`/dashboard/todo?id=${todo.id}`}>
+                                    <Link to={`/todo?id=${todo.id}`}>
                                         {todo.content}
                                     </Link>
                                 </li>
@@ -41,8 +41,6 @@ const Dashboard = () => {
                     <p>No todos found.</p>
                 )
             }
-
-            <Outlet />
         </div>
     )
 }

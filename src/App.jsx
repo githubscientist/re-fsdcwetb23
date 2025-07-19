@@ -28,13 +28,11 @@ const routes = [
   {
     path: "dashboard",
     element: <Dashboard />,
-    children: [
-      {
-        path: "todo",
-        element: <Todo />
-      }
-    ]
-  }
+  },
+  {
+    path: "todo",
+    element: <Todo />
+  },
 ];
 
 // 1. Create a router object.

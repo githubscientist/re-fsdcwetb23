@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 
 const Todo = () => {
 
     const location = useLocation();
+    const navigate = useNavigate();
     const query = new URLSearchParams(location.search);
     const [todo, setTodo] = useState({});
 
@@ -20,6 +21,10 @@ const Todo = () => {
             });
     }, [location.search]);
 
+    const handleBack = () => {
+        navigate(-1); // Navigate back to the previous page
+    }
+
     return (
         <div>
             <h1>Todo Details</h1>
@@ -27,6 +32,9 @@ const Todo = () => {
             <p><strong>Content:</strong> {todo.content}</p>
             <p><strong>Status:</strong> {todo.isCompleted ? "Completed" : "Incomplete"}</p>
             <p><strong>Created At:</strong> {new Date(todo.createdAt).toLocaleDateString()}</p>
+            <div>
+                <button onClick={handleBack}>Back</button>
+            </div>
         </div>
     )
 }
