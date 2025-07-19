@@ -1,10 +1,10 @@
-import instance from "../../instances/instance";
+import todoServices from "../../services/todoServices";
 
 const todoLoader = async ({ params }) => {
     try {
         const { id } = params;
-        const response = await instance.get(`/todos/${id}`);
-        return response.data;
+        const todo = await todoServices.getTodoById(id);
+        return todo;
     } catch (error) {
         return {};
     }

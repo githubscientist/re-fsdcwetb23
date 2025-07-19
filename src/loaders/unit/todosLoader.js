@@ -1,9 +1,9 @@
-import instance from "../../instances/instance";
+import todoServices from "../../services/todoServices";
 
 const todosLoader = async () => {
     try {
-        const response = await instance.get(`/todos`);
-        return response.data;
+        const todos = await todoServices.getTodos();
+        return todos;
     } catch (error) {
         return [];
     }

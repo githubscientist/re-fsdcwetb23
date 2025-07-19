@@ -1,5 +1,6 @@
 import { useLoaderData, useNavigate } from "react-router";
 import instance from "../instances/instance";
+import todoServices from "../services/todoServices";
 
 const Todo = () => {
 
@@ -11,7 +12,7 @@ const Todo = () => {
     }
 
     const handleDelete = () => {
-        confirm("Are you sure you want to delete this todo?") && instance.delete(`/todos/${todo.id}`)
+        confirm("Are you sure you want to delete this todo?") && todoServices.deleteTodo(todo.id)
             .then(() => {
                 alert("Todo deleted successfully");
 
