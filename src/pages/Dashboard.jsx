@@ -58,10 +58,11 @@ const Dashboard = () => {
                 &nbsp;&nbsp;
                 <strong>{todos.filter(todo => todo.isCompleted).length} out of {todos.length} tasks done</strong>
             </div>
-
+            <hr />
+            <br />
             {
                 todos.length > 0 ? (
-                    <ul>
+                    <div>
                         {
                             todos
                                 .filter(todo => {
@@ -91,12 +92,13 @@ const Dashboard = () => {
                                     </div>
                                 ))
                         }
-                    </ul>
+                    </div>
                 ) : (
                     <p>No todos found.</p>
                 )
             }
-
+            <br />
+            <br />
             <div>
                 <form onSubmit={handleAddTodo}>
                     <input
