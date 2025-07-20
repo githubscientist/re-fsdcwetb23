@@ -32,7 +32,6 @@ const todoServices = {
     updateTodo: async (id, todo) => {
         try {
             const updatedTodo = {
-                content: todo.content,
                 isCompleted: !todo.isCompleted
             }
             const response = await instance.put(`/todos/${id}`, updatedTodo);
