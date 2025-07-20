@@ -193,3 +193,15 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 - An Axios instance is a pre-configured instance of the Axios library that can be used to make HTTP requests.
 - It allows you to set default configurations like base URL, headers, and timeouts for all requests made using that instance.
 - This is useful for avoiding repetitive code and ensuring consistent configurations across your application.
+
+### http vs https
+
+- HTTP (Hypertext Transfer Protocol) is an application layer protocol used for transmitting data over the internet.
+- HTTPS (HTTP Secure) is an extension of HTTP that adds a layer of security by encrypting the data transmitted between the client and server using SSL/TLS (Secure Socket Layer/Transport Layer Security).
+- The main difference is that HTTPS provides a secure connection, while HTTP does not.
+
+### SSL Certificate
+
+- An SSL (Secure Socket Layer) certificate is a digital certificate that authenticates the identity of a website and enables an encrypted connection.
+- It is used to secure data transmitted between the client and server, ensuring that sensitive information like
+  credit card numbers, passwords, and personal data is protected from eavesdropping and tampering.

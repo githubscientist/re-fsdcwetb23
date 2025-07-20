@@ -18,7 +18,16 @@ const todoServices = {
         }
     },
     createTodo: async (todo) => {
-
+        try {
+            const newTodo = {
+                content: todo,
+                isCompleted: false
+            }
+            const response = await instance.post(`/todos`, newTodo);
+            return response.data;
+        } catch (error) {
+            console.error("Error creating todo:", error);
+        }
     },
     updateTodo: async (id, todo) => {
 
