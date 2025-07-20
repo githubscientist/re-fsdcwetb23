@@ -7,6 +7,7 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const todos = useLoaderData();
     const [newTodo, setNewTodo] = useState('');
+    const [filter, setFilter] = useState('all');
 
     const handleLogout = () => {
         alert('User Logged Out!');
@@ -34,17 +35,38 @@ const Dashboard = () => {
         <div>
             <h1>Dashboard</h1>
             <p>User logged in! <button onClick={handleLogout}>logout</button></p>
+
+            <div>
+                Filter: <select
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                >
+                    <option value="all">All</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+
             {
                 todos.length > 0 ? (
                     <ul>
                         {
-                            todos.map(todo => (
-                                <li key={todo.id}>
-                                    <Link to={`/todo/${todo.id}`}>
-                                        {todo.content}
-                                    </Link>
-                                </li>
-                            ))
+                            todos
+                                .filter(todo => {
+                                    if (filter === 'completed') {
+                                        return todo.isCompleted;
+                                    } else if (filter === 'pending') {
+                                        return !todo.isCompleted;
+                                    }
+                                    return true; // 'all' case
+                                })
+                                .map(todo => (
+                                    <li key={todo.id}>
+                                        <Link to={`/todo/${todo.id}`}>
+                                            {todo.content}
+                                        </Link>
+                                    </li>
+                                ))
                         }
                     </ul>
                 ) : (
