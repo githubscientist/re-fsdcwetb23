@@ -1,65 +1,31 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
-import Login from "./components/Login";
-import Home from "./pages/Home";
-import Register from "./components/Register";
-import HomeWrapper from "./wrappers/HomeWrapper";
-import Dashboard from "./pages/Dashboard";
-import Todo from "./components/Todo";
-import todosLoader from "./loaders/unit/todosLoader";
-import todoLoader from "./loaders/unit/todoLoader";
-
-const routes = [
-  {
-    path: "/",
-    element: <HomeWrapper />,
-    children: [
-      {
-        path: "",
-        element: <Home />
-      },
-      {
-        path: "login",
-        element: <Login />
-      },
-      {
-        path: "register",
-        element: <Register />
-      }
-    ]
-  },
-  {
-    path: "dashboard",
-    element: <Dashboard />,
-    loader: todosLoader,
-    hydrateFallbackElement: <p>Loading Dashboard...</p>,
-  },
-  {
-    path: "todo/:id",
-    element: <Todo />,
-    loader: todoLoader,
-    hydrateFallbackElement: <p>Loading Todo Details...</p>,
-  },
-];
-
-// 1. Create a router object.
-const router = createBrowserRouter(routes, {
-  future: {
-    v7_relativeSplatPath: true,
-    v7_fetcherPersist: true,
-    v7_normalizeFormMethod: true,
-    v7_partialHydration: true,
-    v7_skipActionErrorRevalidation: true,
-  },
-});
+import { useState } from "react";
+import Reactions from "./components/Reactions";
+import Actions from "./components/Actions";
 
 const App = () => {
+
+  const [likes, setLikes] = useState(0);
+  const [dislikes, setDislikes] = useState(0);
+
+  const handleLike = () => {
+    setLikes(likes + 1);
+  }
+
+  const handleDislike = () => {
+    setDislikes(dislikes + 1);
+  }
+
   return (
-    <RouterProvider
-      router={router}
-      future={{
-        v7_startTransition: true,
-      }}
-    />
+    <div>
+      <Reactions
+        likes={likes}
+        dislikes={dislikes}
+      />
+      <Actions
+        handleLike={handleLike}
+        handleDislike={handleDislike}
+      />
+    </div>
   )
 }
 

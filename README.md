@@ -205,3 +205,10 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 - An SSL (Secure Socket Layer) certificate is a digital certificate that authenticates the identity of a website and enables an encrypted connection.
 - It is used to secure data transmitted between the client and server, ensuring that sensitive information like
   credit card numbers, passwords, and personal data is protected from eavesdropping and tampering.
+
+
+App.jsx (Parent)
+    - Reactions.jsx (Child) (total reactions, likes, dislikes)
+        - Total Reactions (text element)
+        - ReactionsCount.jsx (child) - (--likes and dislikes count)
+    - Actions.jsx (child) (--buttons to like and dislike)
