@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Reactions from "./components/Reactions";
 import Actions from "./components/Actions";
+
+// 1. Create a context
+export const ReactionsContext = createContext();
 
 const App = () => {
 
@@ -16,16 +19,12 @@ const App = () => {
   }
 
   return (
-    <div>
-      <Reactions
-        likes={likes}
-        dislikes={dislikes}
-      />
-      <Actions
-        handleLike={handleLike}
-        handleDislike={handleDislike}
-      />
-    </div>
+    <>
+      <ReactionsContext.Provider value={{ likes, dislikes, handleLike, handleDislike }}>
+        <Reactions />
+        <Actions />
+      </ReactionsContext.Provider>
+    </>
   )
 }
 

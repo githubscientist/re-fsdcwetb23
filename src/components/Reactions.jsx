@@ -1,13 +1,11 @@
 import ReactionsCount from "./ReactionsCount";
+import TotalReactions from "./TotalReactions";
 
-const Reactions = ({ likes, dislikes }) => {
+const Reactions = () => {
     return (
         <div>
-            <h1>Total Reactions: {likes + dislikes} </h1>
-            <ReactionsCount
-                likes={likes}
-                dislikes={dislikes}
-            />
+            <TotalReactions />
+            <ReactionsCount />
         </div>
     )
 }

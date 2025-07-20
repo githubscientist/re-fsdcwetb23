@@ -206,9 +206,15 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 - It is used to secure data transmitted between the client and server, ensuring that sensitive information like
   credit card numbers, passwords, and personal data is protected from eavesdropping and tampering.
 
+App.jsx (Parent) - Reactions.jsx (Child) (total reactions, likes, dislikes) - Total Reactions (text element) - ReactionsCount.jsx (child) - (--likes and dislikes count) - Actions.jsx (child) (--buttons to like and dislike)
 
-App.jsx (Parent)
-    - Reactions.jsx (Child) (total reactions, likes, dislikes)
-        - Total Reactions (text element)
-        - ReactionsCount.jsx (child) - (--likes and dislikes count)
-    - Actions.jsx (child) (--buttons to like and dislike)
+### React Context API
+
+- The React Context API is a way to share data between components without having to pass props through every level of the component tree.
+- It allows you to create a global state that can be accessed by any component in the application.
+- It is useful for avoiding props drilling and managing global state in a more efficient way.
+
+- Context API contains three main components:
+  1. Context: The context object that holds the data to be shared.
+  2. Provider: A component that provides the context value to its children.
+  3. Consumer: A component that consumes the context value.
