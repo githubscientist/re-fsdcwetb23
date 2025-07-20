@@ -31,6 +31,16 @@ const Dashboard = () => {
             })
     }
 
+    const handleUpdateTodo = async (id, todo) => {
+        await todoServices.updateTodo(id, todo)
+            .then(() => {
+                // alert('Todo updated successfully!');
+
+                // reload the todos
+                navigate('/dashboard');
+            })
+    }
+
     return (
         <div>
             <h1>Dashboard</h1>
@@ -45,6 +55,8 @@ const Dashboard = () => {
                     <option value="completed">Completed</option>
                     <option value="pending">Pending</option>
                 </select>
+                &nbsp;&nbsp;
+                <strong>{todos.filter(todo => todo.isCompleted).length} out of {todos.length} tasks done</strong>
             </div>
 
             {
@@ -60,12 +72,23 @@ const Dashboard = () => {
                                     }
                                     return true; // 'all' case
                                 })
+                                .sort((a, b) => a.isCompleted - b.isCompleted)
                                 .map(todo => (
-                                    <li key={todo.id}>
-                                        <Link to={`/todo/${todo.id}`}>
+                                    <div key={todo.id}>
+                                        <input
+                                            type="checkbox"
+                                            checked={todo.isCompleted}
+                                            onChange={() => handleUpdateTodo(todo.id, todo)}
+                                        />&nbsp;&nbsp;
+                                        <Link to={`/todo/${todo.id}`}
+                                            style={{
+                                                textDecoration: todo.isCompleted ? 'line-through' : 'none',
+                                                color: todo.isCompleted ? 'gray' : 'black'
+                                            }}
+                                        >
                                             {todo.content}
                                         </Link>
-                                    </li>
+                                    </div>
                                 ))
                         }
                     </ul>
@@ -78,7 +101,7 @@ const Dashboard = () => {
                 <form onSubmit={handleAddTodo}>
                     <input
                         type="text"
-                        placeholder="Add a new todo"
+                        placeholder="Add a new todo..."
                         value={newTodo}
                         onChange={(e) => setNewTodo(e.target.value)}
                         size={50}

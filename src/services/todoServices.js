@@ -30,7 +30,16 @@ const todoServices = {
         }
     },
     updateTodo: async (id, todo) => {
-
+        try {
+            const updatedTodo = {
+                content: todo.content,
+                isCompleted: !todo.isCompleted
+            }
+            const response = await instance.put(`/todos/${id}`, updatedTodo);
+            return response.data;
+        } catch (error) {
+            console.error("Error updating todo:", error);
+        }
     },
     deleteTodo: async (id) => {
         try {
