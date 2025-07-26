@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router';
 import todoServices from '../services/todoServices';
+import TodoItem from '../components/TodoItem';
 
 const Dashboard = () => {
 
@@ -8,6 +9,8 @@ const Dashboard = () => {
     const todos = useLoaderData();
     const [newTodo, setNewTodo] = useState('');
     const [filter, setFilter] = useState('all');
+    const [isEditing, setIsEditing] = useState(false);
+    const [isEditingTodo, setIsEditingTodo] = useState({});
 
     const handleLogout = () => {
         alert('User Logged Out!');
@@ -39,6 +42,36 @@ const Dashboard = () => {
                 // reload the todos
                 navigate('/dashboard');
             })
+    }
+
+    const handleEditTodo = (event) => {
+        event.preventDefault();
+
+        todoServices.editAndUpdateTodo(isEditingTodo.id, { content: newTodo })
+            .then(() => {
+                alert('Todo updated successfully!');
+
+                // clear the input field
+                setNewTodo('');
+
+                // reset editing state
+                setIsEditing(false);
+                setIsEditingTodo({});
+
+                // reload the todos
+                navigate('/dashboard');
+            })
+            .catch(error => {
+                console.error("Error updating todo:", error);
+            });
+        setIsEditing(false);
+        setIsEditingTodo({});
+        setNewTodo(''); // Clear input after editing
+    }
+
+    const toggleEditMode = () => {
+        setIsEditing(true);
+        setNewTodo(''); // Clear input when toggling edit mode
     }
 
     return (
@@ -75,21 +108,14 @@ const Dashboard = () => {
                                 })
                                 .sort((a, b) => a.isCompleted - b.isCompleted)
                                 .map(todo => (
-                                    <div key={todo.id}>
-                                        <input
-                                            type="checkbox"
-                                            checked={todo.isCompleted}
-                                            onChange={() => handleUpdateTodo(todo.id, todo)}
-                                        />&nbsp;&nbsp;
-                                        <Link to={`/todo/${todo.id}`}
-                                            style={{
-                                                textDecoration: todo.isCompleted ? 'line-through' : 'none',
-                                                color: todo.isCompleted ? 'gray' : 'black'
-                                            }}
-                                        >
-                                            {todo.content}
-                                        </Link>
-                                    </div>
+                                    <TodoItem
+                                        todo={todo}
+                                        key={todo.id}
+                                        handleUpdateTodo={handleUpdateTodo}
+                                        toggleEditMode={toggleEditMode}
+                                        setNewTodo={setNewTodo}
+                                        setIsEditingTodo={setIsEditingTodo}
+                                    />
                                 ))
                         }
                     </div>
@@ -100,17 +126,17 @@ const Dashboard = () => {
             <br />
             <br />
             <div>
-                <form onSubmit={handleAddTodo}>
+                <form onSubmit={isEditing ? handleEditTodo : handleAddTodo}>
                     <input
                         type="text"
-                        placeholder="Add a new todo..."
+                        placeholder={isEditing ? 'Update your todo...' : 'Add a new todo...'}
                         value={newTodo}
                         onChange={(e) => setNewTodo(e.target.value)}
                         size={50}
                     />
                     <input
                         type="submit"
-                        value="Add Todo"
+                        value={isEditing ? 'Update Todo' : 'Add Todo'}
                     />
                 </form>
             </div>

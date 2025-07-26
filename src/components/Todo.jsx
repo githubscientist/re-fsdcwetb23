@@ -1,5 +1,4 @@
 import { useLoaderData, useNavigate } from "react-router";
-import instance from "../instances/instance";
 import todoServices from "../services/todoServices";
 
 const Todo = () => {
