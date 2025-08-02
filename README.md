@@ -205,3 +205,14 @@ Step 8: The re-rendered Dashboard component displays the list of todos fetched f
 - An SSL (Secure Socket Layer) certificate is a digital certificate that authenticates the identity of a website and enables an encrypted connection.
 - It is used to secure data transmitted between the client and server, ensuring that sensitive information like
   credit card numbers, passwords, and personal data is protected from eavesdropping and tampering.
+
+### Redux
+
+- Redux is a state management library for JavaScript applications, often used with React.
+- It provides a predictable state container that helps manage the state of an application in a consistent way
+- Redux follows a unidirectional data flow, where the state is stored in a single store, and changes to the state are made through actions and reducers.
+
+slices in the redux:
+
+- Slices are a way to organize Redux state and logic into smaller, manageable pieces.
+- Each slice represents a specific part of the application state and contains its own actions and reducers.

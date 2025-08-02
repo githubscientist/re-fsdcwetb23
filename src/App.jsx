@@ -1,33 +1,19 @@
-import { useReducer } from "react";
-import reducer from "./reducers/reducer";
-
-// TODO: Move the reducer to  a separate file
-// TODO: Add more actions like DISLIKE, RESET
-
-const initialState = {
-  likes: 0,
-  dislikes: 0
-}
+import { useDispatch, useSelector } from "react-redux";
+import { like, selectLikes } from "./redux/features/reactionSlice";
 
 const App = () => {
 
-  const [reactions, dispatch] = useReducer(reducer, initialState);
+  const likes = useSelector(selectLikes);
+  const dispatch = useDispatch();
 
   const handleLike = () => {
-    dispatch({ type: 'LIKE' });
-  }
-
-  const handleDislike = () => {
-    dispatch({ type: 'DISLIKE' });
+    dispatch(like());
   }
 
   return (
     <div>
-      <h1>Likes: {reactions.likes}</h1>
+      <h1>Likes: {likes}</h1>
       <button onClick={handleLike}>Like</button>
-
-      <h1>Dislikes: {reactions.dislikes}</h1>
-      <button onClick={handleDislike}>Dislike</button>
     </div>
   )
 }
