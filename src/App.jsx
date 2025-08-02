@@ -1,17 +1,11 @@
 import { useReducer } from "react";
+import reducer from "./reducers/reducer";
+
+// TODO: Move the reducer to  a separate file
+// TODO: Add more actions like DISLIKE, RESET
 
 const initialState = {
   likes: 0
-}
-
-const reducer = (state, action) => {
-  if (action.type === 'LIKE') {
-    return {
-      ...state,
-      likes: state.likes + 1
-    }
-  }
-  return state;
 }
 
 const App = () => {
